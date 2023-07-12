@@ -1,5 +1,4 @@
 import './App.css';
-import Home from './Components/Home/Home';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Login from './Components/Login/Login';
@@ -9,6 +8,7 @@ import { useState } from 'react';
 import Validate from './Components/Validate/Validate';
 import ValidatePanel from './Components/ValidatePanel/ValidatePanel';
 import Panel from './Components/Panel/Panel';
+import Menu from './Components/Menu/Menu';
 
 
 
@@ -26,7 +26,7 @@ function App() {
           <Route path='registro' element={<Registro />} />
           <Route path='*' element={<ErrorPage />} />
           <Route element={<Validate permiso={user1} />}>
-            <Route path='menu' element={<Home />} />           
+            <Route path='menu' element={<Menu user={user1} />} />           
           </Route>
           <Route element={<ValidatePanel usuario={user1} />}>
             <Route path='panel' element={<Panel urlBackend={URL} />} />

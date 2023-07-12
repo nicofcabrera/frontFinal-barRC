@@ -6,8 +6,7 @@ const ValidatePanel = ({ usuario, redireccion = '/' }) => {
   
   if (usuario) {
     const { data } = usuario
-    // Se debe cambia la igualdad por !=
-    if (data.user.rol === 'user') {      
+    if (data.user.rol === 'admin') {      
       return <Outlet /> 
     }
   } 

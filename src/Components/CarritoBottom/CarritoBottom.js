@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador, setContador }) => {
   
@@ -18,11 +18,24 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
     setAllProducts([])
   }
 
-  // console.log(allProducts)
-
+  const [carroProducto, setCaroProducto] = useState()
+  
   const enviarPedido = () => {
     // Falta agregar el metodo POST a la función.
+    // console.log(allProducts)
     console.log('ENVIANDO...');
+    setCaroProducto(allProducts)
+
+    for (let index = 0; index < carroProducto.length; index++) {
+      const element = carroProducto[index];
+      // console.log(element.nombre, element.cantidad);
+      setCaroProducto({
+        ...carroProducto,
+        ['descripcion'] : element.nombre,
+      })
+    }
+
+    console.log(carroProducto)
   }
 
   return (
@@ -50,7 +63,11 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
               }
               <p className='text-center'>Total: ${total}</p>
               <button className='d-block w-100 btn btn-info' onClick={vaciarCarro}>Vaciar Carrito</button>
-              <button className='d-block w-100 btn btn-success mt-3' onClick={enviarPedido}>Enviar pedido</button>
+              {
+                total ? (
+                  <button className='d-block w-100 btn btn-success mt-3' onClick={enviarPedido}>Enviar pedido</button>
+                ) : false
+              }
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
