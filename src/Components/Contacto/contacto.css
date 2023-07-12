@@ -1,0 +1,41 @@
+.container_contacto{
+  background-image: url('https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.w-500{
+  font-weight: 500;
+}
+
+.container_wsp{
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  box-shadow: 2px 2px 3px green;
+  border-radius: 50%;
+}
+
+
+@media screen and (min-width:768px){
+  .container_contacto_parrafo, form{
+    width: 70ch;
+  }
+
+  .container_wsp {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width:992px){
+  .container_wsp{
+    width: 60px;
+    height: 60px;
+    right: 25px;
+  }
+}

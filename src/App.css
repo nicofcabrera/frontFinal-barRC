@@ -1,0 +1,66 @@
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
+.button-fila{
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cards menu */
+.card-style {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 90%;
+  position: relative;
+}
+
+.bg-fondo-menu {
+  background-image: linear-gradient(to right top, #000000, #1d1d1d, #333333, #4b4b4b, #646464);
+}
+
+.card_menu_front{
+  width: 18rem;
+}
+
+.card_menu_front img{
+  height: calc(18rem/1.2);
+}
+
+.card_menu_front .bebidas{
+ object-fit: contain;
+}
+
+
+
+@media screen and (min-width:768px) {
+  .card-style {
+    width: 350px;
+    /* height: 250px; */
+  }
+
+  .button {
+    position: absolute;
+    bottom: 0;
+  }
+
+}
+
+@media screen and (min-width:992px) {
+  .card-style {
+    width: 450px;
+    /* height: 200px; */
+  }
+
+
+  .button {
+    position: absolute;
+    width: 2rem;
+    bottom: 0;
+    right: 0;
+  }
+}

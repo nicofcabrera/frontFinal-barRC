@@ -1,0 +1,24 @@
+
+.bg-hero-clientes{
+  background-image: url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-opacidad);
+}
+
+.container_home{
+  min-height: 90vh;
+}
+
+.container_mobile{
+  width: 200px;
+}
+
+@media screen and (min-width:768px){
+  .container_mobile{
+    width: 300px;
+  }
+}
+
+

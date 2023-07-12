@@ -1,0 +1,20 @@
+.btn{
+  transition: all .3s linear;
+}
+
+.img_logo{
+  width: 4rem;
+}
+
+.link_navegacion{
+  font-weight: 500;
+}
+
+.link_navegacion:hover, .link_navegacion:focus{
+  font-weight: 700;
+  text-decoration: underline 2px;
+}
+
+.navbar-toggler, .navbar-collapse{
+  transition: all .5s ease-in-out;
+}

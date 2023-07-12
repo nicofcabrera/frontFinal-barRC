@@ -1,0 +1,39 @@
+/* .card-style{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 90%;
+  position: relative;
+}
+
+.bg-fondo-menu{
+  background-image: linear-gradient(to right top, #000000, #1d1d1d, #333333, #4b4b4b, #646464);
+}
+
+
+
+@media screen and (min-width:768px){
+  .card-style{
+    width: 350px;
+    height: 250px;
+  }
+
+  .button{
+    position:absolute;
+    bottom: 0; 
+  }
+    
+}
+
+@media screen and (min-width:992px){
+  .card-style{
+    width: 450px;
+    height: 200px;
+  }
+
+
+    .button {  
+       position: absolute;
+       width: 2rem;
+      bottom: 0;
+      right: 0;
+    }
+} */
