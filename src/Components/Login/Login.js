@@ -23,7 +23,6 @@ const Login = ({setUser1}) => {
     if (respuesta.data.result && respuesta.data.token) {
       setUser1(respuesta)
       navigate('/menu')
-      // navigate('/panel')
     }
   }
 

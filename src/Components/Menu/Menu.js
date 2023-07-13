@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
   
-const Menu = ({user,setComanda}) => {
+const Menu = ({user,setComanda, urlBackend}) => {
 
   const [allProducts, setAllProducts] = useState([])
   const [total, setTotal] = useState(0)
@@ -62,7 +62,9 @@ const Menu = ({user,setComanda}) => {
           setTotal={setTotal}
           contador={contador}
           setContador={setContador}
-          setComanda= {setComanda}
+          setComanda={setComanda}
+          user={user}
+          urlBackend={URL}
         />
       </main>
       <Footer />

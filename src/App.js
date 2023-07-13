@@ -16,7 +16,9 @@ function App() {
 
   const [user1, setUser1] = useState();
   const URL = 'http://localhost:8000'
-   const [comanda, setComanda] = useState()
+  const [comanda, setComanda] = useState()
+
+  console.log(user1);
 
   return (
     <>
@@ -27,10 +29,10 @@ function App() {
           <Route path='registro' element={<Registro />} />
           <Route path='*' element={<ErrorPage />} />
           <Route element={<Validate permiso={user1} />}>
-            <Route path='menu' element={<Menu user={user1} setComanda={setComanda} />} />           
+            <Route path='menu' element={<Menu user={user1} setComanda={setComanda} urlBackend={URL} />} />           
           </Route>
           <Route element={<ValidatePanel usuario={user1} />}>
-            <Route path='panel' element={<Panel urlBackend={URL} comanda={comanda} />} />
+            <Route path='panel' element={<Panel urlBackend={URL} comanda={comanda} user={user1} />} />
          </Route>
         </Routes>
       </BrowserRouter>
