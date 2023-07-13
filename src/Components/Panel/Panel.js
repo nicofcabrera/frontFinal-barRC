@@ -5,9 +5,12 @@ import ButtonPostMenu from '../ButtonPostMenu/ButtonPostMenu'
 import TablaPedidos from '../TablaPedidos/TablaPedidos'
 import { Link } from 'react-router-dom'
 
-const Panel = ({urlBackend}) => {
+const Panel = ({urlBackend, comanda}) => {
   
-  
+  if (comanda) {
+    console.log(comanda);
+  }
+
   return (
     <>  
       <h1 className='text-center mt-3'>Panel de control</h1>
@@ -16,7 +19,7 @@ const Panel = ({urlBackend}) => {
         <h2>Usuarios</h2>
         <TablaUsers urlBackend={urlBackend} />
         <h2>Pedidos</h2>
-        <TablaPedidos />
+        <TablaPedidos comanda={comanda} />
         <h2>Menu</h2>
         {/* ver en armar un componente para el poste */}
         <ButtonPostMenu/>

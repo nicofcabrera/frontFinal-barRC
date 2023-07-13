@@ -16,7 +16,8 @@ function App() {
 
   const [user1, setUser1] = useState();
   const URL = 'http://localhost:8000'
-  
+   const [comanda, setComanda] = useState()
+
   return (
     <>
       <BrowserRouter>
@@ -26,10 +27,10 @@ function App() {
           <Route path='registro' element={<Registro />} />
           <Route path='*' element={<ErrorPage />} />
           <Route element={<Validate permiso={user1} />}>
-            <Route path='menu' element={<Menu user={user1} />} />           
+            <Route path='menu' element={<Menu user={user1} setComanda={setComanda} />} />           
           </Route>
           <Route element={<ValidatePanel usuario={user1} />}>
-            <Route path='panel' element={<Panel urlBackend={URL} />} />
+            <Route path='panel' element={<Panel urlBackend={URL} comanda={comanda} />} />
          </Route>
         </Routes>
       </BrowserRouter>

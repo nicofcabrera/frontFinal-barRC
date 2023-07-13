@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 
-const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1 }) => {
+const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1, comanda }) => {
   
   const cambiarEstado = async () => {
     let confirma = window.confirm('Desea cambiar el estado?');
@@ -28,6 +28,7 @@ return (
         <i className="bi bi-check"></i>
       </button>
     </td>
+    <td>{comanda.join(', ')}</td>
   </>
 )
 }

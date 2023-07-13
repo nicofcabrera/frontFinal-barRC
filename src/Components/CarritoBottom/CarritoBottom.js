@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador, setContador }) => {
+const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador, setContador,setComanda }) => {
   
   const deleteProduct = (product) => {
     const result = allProducts.filter(
@@ -18,24 +18,16 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
     setAllProducts([])
   }
 
-  const [carroProducto, setCaroProducto] = useState()
+
+ 
+  const [carroProducto, setCarroProducto] = useState()
   
   const enviarPedido = () => {
-    // Falta agregar el metodo POST a la función.
-    // console.log(allProducts)
     console.log('ENVIANDO...');
-    setCaroProducto(allProducts)
+  
+    const mappedProduct = allProducts.map(result => `${result.cantidad} ${result.nombre}`)
+    setComanda(mappedProduct)
 
-    for (let index = 0; index < carroProducto.length; index++) {
-      const element = carroProducto[index];
-      // console.log(element.nombre, element.cantidad);
-      setCaroProducto({
-        ...carroProducto,
-        ['descripcion'] : element.nombre,
-      })
-    }
-
-    console.log(carroProducto)
   }
 
   return (

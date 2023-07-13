@@ -10,13 +10,15 @@ import { Link } from 'react-router-dom';
 
 
   
-const Menu = ({user}) => {
+const Menu = ({user,setComanda}) => {
 
   const [allProducts, setAllProducts] = useState([])
   const [total, setTotal] = useState(0)
   const [contador, setContador] = useState(0)
   const { data } = user
   
+ 
+
   return (
     <>
       <NavbarLanding title='Bar RC' linkUno={'Sanguches'} linkDos={'Burgers'} linkTres={'Bebidas'} linkCuatro={'Ingresar'} linkCinco={'Registrarse'} />
@@ -59,7 +61,9 @@ const Menu = ({user}) => {
           total={total}
           setTotal={setTotal}
           contador={contador}
-          setContador={setContador}/>
+          setContador={setContador}
+          setComanda= {setComanda}
+        />
       </main>
       <Footer />
     </>
