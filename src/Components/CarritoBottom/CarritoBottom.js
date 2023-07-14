@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
-const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador, setContador,setComanda, user, }) => {
+const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador, setContador,setComanda, user, fecha }) => {
   
   const URL = 'http://localhost:8000'
 
@@ -21,23 +21,20 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
     setAllProducts([])
   }
 
-  const [carroProducto, setCarroProducto] = useState()
-  
   const datos = user
-
 
   const enviarPedido = async () => {
     console.log('ENVIANDO...');
     
-
     const mappedProduct = allProducts.map(result => `${result.cantidad} ${result.nombre}`)
     setComanda(mappedProduct)
     
     const resultado = await axios.post(`${URL}/post-pedido`, {
       usuario: datos.data.user.nombre,
-      fecha: '13-7-23',
+      fecha: fecha,
       menu: mappedProduct
     })
+
   
     alert('¡Se envió tu pedido!')
     console.log(resultado);

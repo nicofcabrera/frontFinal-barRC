@@ -7,9 +7,8 @@ import { Link } from 'react-router-dom'
 
 const Panel = ({urlBackend, comanda, user}) => {
   
-  if (comanda) {
-    console.log(comanda);
-  }
+
+
 
   return (
     <>  
@@ -19,7 +18,7 @@ const Panel = ({urlBackend, comanda, user}) => {
         <h2>Usuarios</h2>
         <TablaUsers urlBackend={urlBackend} />
         <h2>Pedidos</h2>
-        <TablaPedidos comanda={comanda} user={user} />
+        <TablaPedidos user={user} />
         <h2>Menu</h2>
         {/* ver en armar un componente para el poste */}
         <ButtonPostMenu/>

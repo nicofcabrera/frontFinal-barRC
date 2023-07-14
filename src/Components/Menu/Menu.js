@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './home.css';
 import NavbarLanding from '../NavbarLanding/NavbarLanding';
 import Sanguches from '../Sanguches/Sanguches';
@@ -16,8 +16,25 @@ const Menu = ({user,setComanda, urlBackend}) => {
   const [total, setTotal] = useState(0)
   const [contador, setContador] = useState(0)
   const { data } = user
+  // const [fecha, setFecha] = useState([])
   
- 
+  const getFecha = () => { 
+    const fechita = new Date()
+    const array = [fechita.getDate(), fechita.getMonth() + 1, fechita.getFullYear()]
+    console.log(array);
+    return array
+  }
+
+  const fecha = getFecha()
+
+
+  
+  
+
+  
+  
+
+
 
   return (
     <>
@@ -65,6 +82,7 @@ const Menu = ({user,setComanda, urlBackend}) => {
           setComanda={setComanda}
           user={user}
           urlBackend={URL}
+          fecha={fecha}
         />
       </main>
       <Footer />

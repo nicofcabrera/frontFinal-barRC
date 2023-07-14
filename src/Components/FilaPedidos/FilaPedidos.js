@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
 
-const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1, comanda, user }) => {
-  
+const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1, fecha }) => {
+
   const cambiarEstado = async () => {
     let confirma = window.confirm('Desea cambiar el estado?');
     let etiqueta = document.querySelector('.btn-pedido')
@@ -10,8 +10,6 @@ const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1, comanda, user }) =>
       etiqueta.classList.add('bg-opacity-50')
       etiqueta.setAttribute('disabled',true)
       await axios.patch('http://localhost:8000/patch-pedido', { id, newEstado: 'Entregado' });
-      // window.location = 'http://localhost:3000/prueba'
-      
     }
     console.log(etiqueta)
   }
@@ -24,7 +22,8 @@ const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1, comanda, user }) =>
 return (
   <>
     <td>{usuario1}</td>
-    <td>{fecha1}</td>
+    <td>{fecha1 ? fecha1.join('-') : null}</td>
+    {/* <td>Pr</td> */}
     <td>{menu1 ? menu1.join(', ') : null}</td>
     <td>{estado1}</td>
     <td>
@@ -32,7 +31,6 @@ return (
         <i className="bi bi-check"></i>
       </button>
     </td>
-    {/* <td>{comanda ? comanda.join(', ') : null}</td> */}
   </>
 )
 }
