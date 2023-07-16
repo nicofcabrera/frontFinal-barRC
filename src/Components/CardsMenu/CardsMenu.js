@@ -13,6 +13,8 @@ const CardsMenu = ({ nombre, estado, precio, detalle, categoria, img, id }) => {
     }
   }
 
+  
+
 return (
   <>
     <div className="row g-0">

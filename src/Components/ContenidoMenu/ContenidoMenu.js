@@ -15,7 +15,7 @@ const ContenidoMenu = () => {
 
   useEffect(() => {
     getDatos()
-  },[])
+  })
 
 
   return (

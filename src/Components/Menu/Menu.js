@@ -16,7 +16,6 @@ const Menu = ({user,setComanda, urlBackend}) => {
   const [total, setTotal] = useState(0)
   const [contador, setContador] = useState(0)
   const { data } = user
-  // const [fecha, setFecha] = useState([])
   
   const getFecha = () => { 
     const fechita = new Date()
@@ -26,15 +25,6 @@ const Menu = ({user,setComanda, urlBackend}) => {
   }
 
   const fecha = getFecha()
-
-
-  
-  
-
-  
-  
-
-
 
   return (
     <>

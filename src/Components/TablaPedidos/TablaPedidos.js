@@ -4,7 +4,6 @@ import FilaPedidos from '../FilaPedidos/FilaPedidos';
 
 const TablaPedidos = ({user}) => {
   const [pedido, setPedido] = useState([]);
-  const [fecha, setFecha] = useState([])
 
   const getPedidos = async () => {
     const { data } = await axios.get('http://localhost:8000/get-pedido')
@@ -29,7 +28,7 @@ const TablaPedidos = ({user}) => {
         <tbody>
         {
           pedido.map(result =>
-            <tr className='fila_pedidos' key={result._id}>
+            <tr className={ result.estado === 'Entregado' ? 'bg-success bg-opacity-25' : 'bg-warning bg-opacity-25' } key={result._id}>
               <FilaPedidos id={result._id} usuario1={result.usuario} fecha1={result.fecha} menu1={result.menu} estado1={result.estado} user={user} />
             </tr>
           )  

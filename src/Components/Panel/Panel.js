@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom'
 
 const Panel = ({urlBackend, comanda, user}) => {
   
-
-
-
   return (
     <>  
       <h1 className='text-center mt-3'>Panel de control</h1>
@@ -20,7 +17,6 @@ const Panel = ({urlBackend, comanda, user}) => {
         <h2>Pedidos</h2>
         <TablaPedidos user={user} />
         <h2>Menu</h2>
-        {/* ver en armar un componente para el poste */}
         <ButtonPostMenu/>
         <ContenidoMenu />
       </div>

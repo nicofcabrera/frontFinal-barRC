@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 const ModalMenu = ({_id}) => {
 
   const [update, setUpdate] = useState({})
-  
+  // const [confirm,setConfirm] = useState()
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setUpdate({
@@ -15,11 +16,11 @@ const ModalMenu = ({_id}) => {
   }
 
   const actualizaMenu = async () => {
-  let confirma = window.confirm('Desea actualizar el Menu?');
+    let confirma = window.confirm('Desea actualizar el Menu?');
+    // setConfirm(confirma)
   if (confirma) {
     await axios.patch('http://localhost:8000/patch-menu', update);
-    window.location = 'http://localhost:3000/prueba'
-  }
+  } 
 }
 
   return (
@@ -27,16 +28,12 @@ const ModalMenu = ({_id}) => {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h1 className="modal-title fs-5" id="exampleModalLabel">Titulo</h1>
+            <h1 className="modal-title fs-5" id="exampleModalLabel">Realizar modificacion</h1>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
             <form className='container'>
-             {/* <div className="mb-3">
-                <label htmlFor="lbl-id" className="form-label">ID</label>
-                <input type="text" id="lbl-id" className="form-control" value={_id} name='id' onChange={handleChange} disabled readOnly/>
-              </div> */}
-              <div className="mb-3">
+               <div className="mb-3">
                 <label htmlFor="formGroupExampleInput" className="form-label">Nombre</label>
                 <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Ingrese nombre de la comida" name='newNom' onChange={handleChange}/>
               </div>
@@ -51,7 +48,7 @@ const ModalMenu = ({_id}) => {
               <div className="mb-3">
                 <label htmlFor="formGroupExampleInput4" className="form-label">Imagen</label>
                 <input type="text" className="form-control" id="formGroupExampleInput4" placeholder="Ingrese solo url de la img" name='newImg' onChange={handleChange}/>
-              </div>
+              </div> 
             </form>
           </div>
           <div className="modal-footer">
