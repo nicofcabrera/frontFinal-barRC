@@ -3,17 +3,18 @@ import React from 'react'
 import ModalMenu from '../ModalMenu/ModalMenu';
 import './cardsMenu.css'
 
-const CardsMenu = ({ nombre, estado, precio, detalle, categoria, img, id }) => {
+const CardsMenu = ({ nombre, precio, detalle, categoria, img, id }) => {
+
+  const URL = 'http://localhost:8000'
+  const token = window.localStorage.getItem('role')
 
   const deleteMenu = async () => {
     let confirma = window.confirm('Desea eliminar el Menu?');
     if (confirma) {
-      await axios.delete(`http://localhost:8000/delete-menu/${id}`);
-      window.location = 'http://localhost:3000/prueba'
+      const { data } = await axios.delete(`${URL}/delete-menu/${id}`, {data: {accesToken: token}});
+      alert(`${data.mensaje}`)
     }
   }
-
-  
 
 return (
   <>
@@ -26,7 +27,6 @@ return (
           <h5 className="card-title">{nombre}</h5>
           <p className="card-text">{detalle}</p>
           <p className="card-text text-underline">Precio: {precio}</p>
-          <p className="card-text">Estado: {estado}</p>
           <p className="card-text">Cat: {categoria}</p>
           <div className='d-flex justify-content-end'>
             <button className='bg-black text-white border border-black rounded-circle button-fila' data-bs-toggle="modal" data-bs-target={'#'+ id}><i className="bi bi-pencil-square"></i></button>

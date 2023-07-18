@@ -5,7 +5,7 @@ import ButtonPostMenu from '../ButtonPostMenu/ButtonPostMenu'
 import TablaPedidos from '../TablaPedidos/TablaPedidos'
 import { Link } from 'react-router-dom'
 
-const Panel = ({urlBackend, comanda, user}) => {
+const Panel = ({urlBackend, user}) => {
   
   return (
     <>  
@@ -18,9 +18,8 @@ const Panel = ({urlBackend, comanda, user}) => {
         <TablaPedidos user={user} />
         <h2>Menu</h2>
         <ButtonPostMenu/>
-        <ContenidoMenu />
+        <ContenidoMenu user={user}/>
       </div>
-
     </>
   )
 }

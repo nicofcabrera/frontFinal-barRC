@@ -5,7 +5,8 @@ const ModalMenu = ({_id}) => {
 
   const [update, setUpdate] = useState({})
   const [confirm, setConfirm] = useState(false)
-  const URL = ''  
+  const [mensaje, setMensaje] = useState()
+  const URL = 'http://localhost:8000'  
 
   const handleChange = (e) => {
     try {
@@ -26,7 +27,8 @@ const ModalMenu = ({_id}) => {
       e.preventDefault()
       let confirma = window.confirm('Desea actualizar el Menu?');
       if (confirma) {
-        await axios.patch('http://localhost:8000/patch-menu', update);
+        const {data} = await axios.patch(`${URL}/patch-menu`, update);
+        setMensaje(data.mensaje)
         setConfirm(confirma)
         setTimeout(() => {
           setConfirm(false)
@@ -51,7 +53,7 @@ const ModalMenu = ({_id}) => {
               {
                 confirm ? (
                   <>
-                    <p className='text-center'>¡Cambiado!</p>
+                  <p className='text-center'>{mensaje}</p>
                     <p className='text-center small fst-italic'>Puede cerrar la ventana.</p>
                   </>
                 ) : (

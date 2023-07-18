@@ -5,6 +5,7 @@ const ButtonPostMenu = () => {
   
   const [update, setUpdate] = useState({})
   const [confirm, setConfirm] = useState(false)
+  const [mensaje, setMensaje] = useState()
   const URL = 'http://localhost:8000'
 
 
@@ -17,12 +18,13 @@ const ButtonPostMenu = () => {
   }
 
 
-  const posteaMenu = async () => {
+  const posteaMenu = async (e) => {
     try {
       e.preventDefault()
       let confirma = window.confirm('Desea postear el Menu?');
       if (confirma) {
-        await axios.post(`${URL}/post-menu`, update);
+        const {data} = await axios.post(`${URL}/post-menu`, update);
+        setMensaje(data.mensaje)
         setConfirm(confirma)
           setTimeout(() => {
             setConfirm(false)
@@ -48,42 +50,54 @@ const ButtonPostMenu = () => {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <form className='container' onSubmit={posteaMenu}>
-              <div className="mb-3">
-                <label htmlFor="lbl-nombre" className="form-label">Nombre</label>
-                <input type="text" className="form-control" id="lbl-nombre" placeholder="Ingrese nombre de la comida" name='nombre' pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title='Agregue el titulo con formato adecuado.' required onChange={handleChange}/>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="lbl-estado" className="form-label">Estado</label>
-                <input type="text" className="form-control" id="lbl-estado" placeholder="Ingrese descripcion" name='estado' required onChange={handleChange}/>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="lbl-precio" className="form-label">Precio</label>
-                <input type="text" className="form-control" id="lbl-precio" placeholder="Ingrese precio" name='precio' pattern="[0-9]{4}" title='Solo numeros de 4 cifras' minLength={1} maxLength={4} required onChange={handleChange}/>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="lbl-desc" className="form-label">Descripcion</label>
-                <input type="text" className="form-control" id="lbl-desc" placeholder="Ingrese precio" name='detalle' maxLength={150} required onChange={handleChange}/>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="lbl-cat" className="form-label">Categoria</label>
-                  <input type="text" className="form-control" id="lbl-cat" placeholder="Ingrese precio" name='categoria' required onChange={handleChange} />
-                  {/* Cambiar por select */}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="lbl-img" className="form-label">Imagen</label>
-                <input type="text" className="form-control" id="lbl-img" placeholder="Ingrese solo url de la img" name='img' required onChange={handleChange}/>
-              </div>
-          <div className="modal-footer">
             {
-              confirm ? (
-                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              ) : (                
-                <button type="submit" className="btn btn-secondary">Enviar</button>                 
+                confirm ? (
+                   <>
+                    <p className='text-center'>{mensaje}</p>
+                    <p className='text-center small fst-italic'>Puede cerrar la ventana.</p>
+                  </>
+                ) : (
+                  <>
+                    <p className='small fst-italic text-end'>*Todos los campos son obligatorios.</p>
+                    <form className='container' onSubmit={posteaMenu}>
+                      <div className="mb-3">
+                        <label htmlFor="lbl-nombre" className="form-label">Nombre</label>
+                        <input type="text" className="form-control" id="lbl-nombre" placeholder="Ingrese nombre de la comida" name='nombre' pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title='Agregue el titulo con formato adecuado.' required onChange={handleChange}/>
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="lbl-precio" className="form-label">Precio</label>
+                        <input type="text" className="form-control" id="lbl-precio" placeholder="Ingrese precio" name='precio' pattern="[0-9]{2,4}" title='Solo numeros de 3 a 4 cifras' minLength={1} maxLength={4} required onChange={handleChange}/>
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="lbl-desc" className="form-label">Descripcion</label>
+                        <input type="text" className="form-control" id="lbl-desc" placeholder="Ingrese descripción" name='detalle' maxLength={150} title='Hasta 150 caracteres' required onChange={handleChange}/>
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="lbl-cat" className="form-label">Categoria</label>
+                          <select name="categoria" id="lbl-cat" className='form-select' onChange={handleChange} required>
+                            <option value="">Seleccione una opcion</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="milanesas">Milanesas</option>
+                            <option value="burger">Burger</option>
+                          </select>
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="lbl-img" className="form-label">Imagen</label>
+                        <input type="text" className="form-control" id="lbl-img" placeholder="Ingrese solo url de la img" name='img' title='Requiere url de la imagen.' required onChange={handleChange}/>
+                      </div>
+                  <div className="modal-footer">
+                    {
+                      confirm ? (
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      ) : (                
+                        <button type="submit" className="btn btn-secondary">Enviar</button>                 
+                      )
+                    }
+                  </div>
+                    </form>
+                  </>
               )
             }
-          </div>
-            </form>
         </div>
           </div>
       </div>

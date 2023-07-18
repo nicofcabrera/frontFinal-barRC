@@ -15,12 +15,12 @@ const Login = ({setUser1}) => {
   const [aviso, setAviso] = useState();
   const navigate = useNavigate()
 
-  // console.log(aviso);
   const onLogin = async (data) => {
     const respuesta = await axios.post(URL, data);
     setAviso(respuesta)
 
     if (respuesta.data.result && respuesta.data.token) {
+      window.localStorage.setItem('role', respuesta.data.token)
       setUser1(respuesta)
       navigate('/menu')
     }
