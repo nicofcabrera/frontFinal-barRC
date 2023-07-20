@@ -3,24 +3,11 @@ import React, { useEffect } from 'react'
 
 const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1, fecha }) => {
 
-  /*
-  const cambiarEstado = async () => {
-    let confirma = window.confirm('Desea cambiar el estado?');
-    let etiqueta = document.querySelector('.btn-pedido')
-    if (confirma && estado1 === 'pendiente') {
-      etiqueta.classList.add('bg-opacity-50')
-      etiqueta.setAttribute('disabled',true)
-      return await axios.patch('http://localhost:8000/patch-pedido', { id, newEstado: 'Entregado' })
-    }
-    console.log(resultado)
-  }
-  */
   
   const cambiarEstado = async () => {
     let confirma = window.confirm('Desea cambiar el estado?');
     if (confirma) {
       const result = await axios.patch('http://localhost:8000/patch-pedido', { id, newEstado: 'Entregado' })
-      // console.log(result);
       const { data } = result
       alert(`${data.mensaje}`)
       return result

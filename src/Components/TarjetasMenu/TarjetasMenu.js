@@ -3,10 +3,8 @@ import React from 'react'
 const TarjetasMenu = ({ categoriaProducto, nombreProducto, descripcionProducto, imgProducto, precioProducto, anchoImg, allProducts, setAllProducts,res }) => {
 
   const addProducts = (res) => {
-    // console.log('first')
     setAllProducts([...allProducts,res])
   }
-  console.log(allProducts)
 
   return (
     <article className="card card_menu_front p-0  position-relative">

@@ -24,7 +24,6 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
   const datos = user
 
   const enviarPedido = async () => {
-    console.log('ENVIANDO...');
     
     const mappedProduct = allProducts.map(result => `${result.cantidad} ${result.nombre}`)
     setComanda(mappedProduct)
@@ -37,7 +36,7 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
 
   
     alert('¡Se envió tu pedido!')
-    console.log(resultado);
+
   }
 
   return (

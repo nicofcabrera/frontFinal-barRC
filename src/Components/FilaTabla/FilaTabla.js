@@ -25,7 +25,6 @@ const FilaTabla = ({ nombre, email, estado2, id2, rol, key1, urlBackend }) => {
   }
   
   const addAdmin = () => {
-    console.log('Arranca');
     let confirma = window.confirm('¿Agregar como ADMINISTRADOR?');
     if (confirma) {
      axios.patch(`${urlBackend}/role-users`, {id: id2, newRole: 'admin'}) 

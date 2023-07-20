@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { HashRouter, Route, Routes} from 'react-router-dom';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Login from './Components/Login/Login';
 import Registro from './Components/Registro/Registro';
@@ -18,11 +18,9 @@ function App() {
   const URL = 'http://localhost:8000'
   const [comanda, setComanda] = useState()
 
-  console.log(user1);
-
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path='/' element={<Inicio/>} />
           <Route path='login' element={<Login user1={user1} setUser1={setUser1} />} />
@@ -35,7 +33,7 @@ function App() {
             <Route path='panel' element={<Panel urlBackend={URL} comanda={comanda} user={user1} />} />
          </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

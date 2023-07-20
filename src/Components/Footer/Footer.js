@@ -1,7 +1,7 @@
 import React from 'react'
 import './footer.css';
 
-const Footer = ({styles}) => {
+const Footer = () => {
   return (
     <footer className='footer'>
       <div className='footer-menu py-3 bg-dark'>
@@ -14,13 +14,13 @@ const Footer = ({styles}) => {
         </div>
       </div>
         <div className='footer-redes text-light my-2'>
-          <a href="/" className='text-white'>
+          <a href="https://www.facebook.com/" target='_blank' className='text-white'>
             <i className="bi bi-facebook me-3"></i>
           </a>
-          <a href="/" className='text-white'>
+          <a href="https://www.instagram.com/" target='_blank' className='text-white'>
             <i className="bi bi-instagram"></i>
           </a>
-          <a href="/" className='text-white'>
+          <a href="https://twitter.com/" target='_blank' className='text-white'>
             <i className="bi bi-twitter ms-3"></i>
           </a>  
       </div>

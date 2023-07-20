@@ -10,7 +10,7 @@ const Panel = ({urlBackend, user}) => {
   return (
     <>  
       <h1 className='text-center mt-3'>Panel de control</h1>
-      <Link to='/menu' className='btn btn-info'>Ver Menu</Link>
+      <Link to='/menu' className='btn btn-dark m-3'>Volver al Menu</Link>
       <div className='container'>
         <h2>Usuarios</h2>
         <TablaUsers urlBackend={urlBackend} />

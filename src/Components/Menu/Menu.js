@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './home.css';
 import NavbarLanding from '../NavbarLanding/NavbarLanding';
 import Sanguches from '../Sanguches/Sanguches';
@@ -20,7 +20,6 @@ const Menu = ({user,setComanda, urlBackend}) => {
   const getFecha = () => { 
     const fechita = new Date()
     const array = [fechita.getDate(), fechita.getMonth() + 1, fechita.getFullYear()]
-    console.log(array);
     return array
   }
 
@@ -32,7 +31,7 @@ const Menu = ({user,setComanda, urlBackend}) => {
       <main className='pt-5 position-relative'>
         {
           user ? data.user.rol === 'admin' ? ( 
-            <Link to='/panel' className='btn btn-info m-3'>Panel de control</Link>
+            <Link to='/panel' className='btn btn-dark m-3'>Panel de control</Link>
          ): false : false
         }
         <Sanguches
