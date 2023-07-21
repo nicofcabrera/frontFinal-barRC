@@ -4,9 +4,11 @@ import FilaPedidos from '../FilaPedidos/FilaPedidos';
 
 const TablaPedidos = ({user}) => {
   const [pedido, setPedido] = useState([]);
+ // const URL = 'http://localhost:8000/get-menu'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
 
   const getPedidos = async () => {
-    const { data } = await axios.get('http://localhost:8000/get-pedido')
+    const { data } = await axios.get(`${URL}/get-menu`)
     setPedido(data);
   }
 

@@ -15,7 +15,7 @@ import Menu from './Components/Menu/Menu';
 function App() {
 
   const [user1, setUser1] = useState();
-  const URL = 'https://backfinal-barrc-production.up.railway.app/'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
   const [comanda, setComanda] = useState()
 
   return (
