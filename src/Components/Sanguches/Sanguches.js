@@ -5,7 +5,7 @@ const Sanguches = ({title, allProducts, setAllProducts, total, setTotal, contado
 
   const [datos, setData] = useState([]);
   // const URL = 'http://localhost:8000/get-menu'
-  const URL = 'https://backfinal-barrc-production.up.railway.app/'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
 
   const getDatos = async () => {
     const { data } = await axios.get(`${URL}/get-menu`)
