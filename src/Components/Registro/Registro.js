@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer'
 import axios from 'axios'
 import { useForm } from "react-hook-form";
 import './register.css'
+import { useNavigate } from 'react-router-dom';
 
 const Registro = () => {
 
@@ -11,14 +12,16 @@ const Registro = () => {
   const patternName = /^[A-Za-z]+$/i;
   const URL = 'http://localhost:8000/post-user'
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     let confirma = window.confirm('Desea Registrarse?');
     if (confirma) {
-      await axios.post(URL, data);
+      const result = await axios.post(URL, data);
       alert('Usuario registrado!')
-      window.location = 'http://localhost:3000/login'
+      navigate('/login')
     }
+    
   }
 
 
