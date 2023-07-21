@@ -10,14 +10,15 @@ const Registro = () => {
 
   const patternEmail = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
   const patternName = /^[A-Za-z]+$/i;
-  const URL = 'http://localhost:8000/post-user'
+  // const URL = 'http://localhost:8000/post-user'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     let confirma = window.confirm('Desea Registrarse?');
     if (confirma) {
-      const result = await axios.post(URL, data);
+      const result = await axios.post(`${URL}/post-user`, data);
       alert('Usuario registrado!')
       navigate('/login')
     }

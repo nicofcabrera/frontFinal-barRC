@@ -5,7 +5,8 @@ import './cardsMenu.css'
 
 const CardsMenu = ({ nombre, precio, detalle, categoria, img, id }) => {
 
-  const URL = 'http://localhost:8000'
+  // const URL = 'http://localhost:8000'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
   const token = window.localStorage.getItem('role')
 
   const deleteMenu = async () => {

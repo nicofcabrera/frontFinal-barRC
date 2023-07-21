@@ -5,7 +5,8 @@ import CardsMenu from '../CardsMenu/CardsMenu';
 const ContenidoMenu = ({user}) => {
 
   const [datos, setData] = useState([]);
-  const URL = 'http://localhost:8000'
+  // const URL = 'http://localhost:8000'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
 
   const getDatos = async () => {
     const { data } = await axios.get(`${URL}/get-menu`)

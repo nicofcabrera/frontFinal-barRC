@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 
 const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador, setContador,setComanda, user, fecha }) => {
   
-  const URL = 'http://localhost:8000'
+  // const URL = 'http://localhost:8000'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
 
   const deleteProduct = (product) => {
     const result = allProducts.filter(

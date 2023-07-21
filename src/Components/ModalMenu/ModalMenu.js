@@ -6,7 +6,8 @@ const ModalMenu = ({_id}) => {
   const [update, setUpdate] = useState({})
   const [confirm, setConfirm] = useState(false)
   const [mensaje, setMensaje] = useState()
-  const URL = 'http://localhost:8000'  
+  // const URL = 'http://localhost:8000'  
+  const URL = 'https://backfinal-barrc-production.up.railway.app'  
 
   const handleChange = (e) => {
     try {
