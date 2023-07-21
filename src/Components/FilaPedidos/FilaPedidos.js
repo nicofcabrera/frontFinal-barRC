@@ -1,13 +1,14 @@
 import axios from 'axios';
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const FilaPedidos = ({ id, usuario1, fecha1, menu1, estado1, fecha }) => {
 
-  
+  // const URL = 'http://localhost:8000/patch-pedido'
+  const URL = 'https://backfinal-barrc-production.up.railway.app'
   const cambiarEstado = async () => {
     let confirma = window.confirm('Desea cambiar el estado?');
     if (confirma) {
-      const result = await axios.patch('http://localhost:8000/patch-pedido', { id, newEstado: 'Entregado' })
+      const result = await axios.patch(`${URL}/patch-pedido`, { id, newEstado: 'Entregado' })
       const { data } = result
       alert(`${data.mensaje}`)
       return result

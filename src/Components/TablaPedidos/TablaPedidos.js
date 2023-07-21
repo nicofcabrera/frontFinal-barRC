@@ -8,7 +8,7 @@ const TablaPedidos = ({user}) => {
   const URL = 'https://backfinal-barrc-production.up.railway.app'
 
   const getPedidos = async () => {
-    const { data } = await axios.get(`${URL}/get-menu`)
+    const { data } = await axios.get(`${URL}/get-pedido`)
     setPedido(data);
   }
 
