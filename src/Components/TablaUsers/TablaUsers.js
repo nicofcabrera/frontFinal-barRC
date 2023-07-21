@@ -17,7 +17,7 @@ const TablaUsers = ({ urlBackend }) => {
   })
 
   return (
-    <>
+    <div className='table-responsive'>
       <table className="table">
         <thead>
           <tr>
@@ -37,7 +37,8 @@ const TablaUsers = ({ urlBackend }) => {
           }
         </tbody>
     </table>
-    </>
+    </div>
+
   )
 }
 
