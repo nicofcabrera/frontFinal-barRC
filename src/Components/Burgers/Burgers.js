@@ -4,9 +4,12 @@ import React, { useEffect, useState } from 'react'
 
 const Burgers = ({title,allProducts, setAllProducts, total, setTotal, contador, setContador}) => {
   const [datos, setData] = useState([]);
+  // const URL = 'http://localhost:8000/get-menu'
+  const URL = 'https://backfinal-barrc-production.up.railway.app/'
+
 
   const getDatos = async () => {
-    const { data } = await axios.get('http://localhost:8000/get-menu')
+    const { data } = await axios.get(`${URL}/get-menu`)
     let result = data.filter(res => res.categoria === 'burger')
 
     setData(result);

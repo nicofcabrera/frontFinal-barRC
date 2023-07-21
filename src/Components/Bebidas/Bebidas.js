@@ -4,9 +4,11 @@ import React, { useEffect, useState } from 'react'
 
 const Bebidas = ({title, allProducts, setAllProducts, total, setTotal, contador, setContador}) => {
   const [datos, setData] = useState([]);
+  // const URL = 'http://localhost:8000/get-menu'
+  const URL = 'https://backfinal-barrc-production.up.railway.app/'
 
   const getDatos = async () => {
-    const { data } = await axios.get('http://localhost:8000/get-menu')
+    const { data } = await axios.get(`${URL}/get-menu`)
     let result = data.filter(res => res.categoria === 'bebidas')
 
     setData(result);
@@ -38,9 +40,6 @@ const Bebidas = ({title, allProducts, setAllProducts, total, setTotal, contador,
     <section className='container mb-5' id={title}>
       <h2>{title}</h2>
       <div className="row justify-content-center justify-content-md-evenly gap-5 gap-md-4">
-      {/* {
-          datos.map(res => <TarjetasMenu categoriaProducto={res.categoria} nombreProducto={res.nombre} descripcionProducto={res.detalle} imgProducto={res.img} precioProducto={res.precio} anchoImg={'bebidas'} />)    
-      } */}
          {
           datos.map(product => (
             <article className="card card_menu_front p-0  position-relative" key={product._id}>
