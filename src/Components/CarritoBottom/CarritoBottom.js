@@ -25,7 +25,9 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
   const datos = user
 
   const enviarPedido = async () => {
-    
+    const modal = document.getElementById('exampleModal');
+    const myModal = bootstrap.Modal.getInstance(modal);
+
     const mappedProduct = allProducts.map(result => `${result.cantidad} ${result.nombre}`)
     setComanda(mappedProduct)
     
@@ -37,7 +39,10 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
 
   
     alert('¡Se envió tu pedido!')
-
+    setTotal(0)
+    setContador(0)
+    setAllProducts([])
+    myModal.hide();
   }
 
   return (
@@ -63,11 +68,13 @@ const CarritoBottom = ({ allProducts, setAllProducts, total, setTotal, contador,
                 )
                   : (<p>El carrito esta vacio</p>)
               }
-              <p className='text-center'>Total: ${total}</p>
-              <button className='d-block w-100 btn btn-info' onClick={vaciarCarro}>Vaciar Carrito</button>
               {
                 total ? (
+                  <>
+                  <p className='text-center'>Total: ${total}</p>
+                  <button className='d-block w-100 btn btn-info' onClick={vaciarCarro}>Vaciar Carrito</button>
                   <button className='d-block w-100 btn btn-success mt-3' onClick={enviarPedido}>Enviar pedido</button>
+                  </>
                 ) : false
               }
             </div>
