@@ -27,7 +27,7 @@ function App() {
           <Route path='registro' element={<Registro />} />
           <Route path='*' element={<ErrorPage />} />
           <Route element={<Validate permiso={user1} />}>
-            <Route path='menu' element={<Menu user={user1} setComanda={setComanda} urlBackend={URL} />} />           
+            <Route path='menu' element={<Menu user={user1} setUser1={setUser1} setComanda={setComanda} urlBackend={URL} />} />           
           </Route>
           <Route element={<ValidatePanel usuario={user1} />}>
             <Route path='panel' element={<Panel urlBackend={URL} comanda={comanda} user={user1} />} />

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
   
-const Menu = ({user,setComanda, urlBackend}) => {
+const Menu = ({user,setComanda, setUser1}) => {
 
   const [allProducts, setAllProducts] = useState([])
   const [total, setTotal] = useState(0)
@@ -27,7 +27,7 @@ const Menu = ({user,setComanda, urlBackend}) => {
 
   return (
     <>
-      <NavbarLanding title='Bar RC' linkUno={'Sanguches'} linkDos={'Burgers'} linkTres={'Bebidas'} linkCuatro={'Ingresar'} linkCinco={'Registrarse'} />
+      <NavbarLanding title='Bar RC' user={user} setUser1={setUser1} linkTres={'Cerrar sesión'} linkCuatro={'Ingresar'} linkCinco={'Registrarse'}  />
       <main className='pt-5 position-relative'>
         {
           user ? data.user.rol === 'admin' ? ( 
@@ -70,7 +70,6 @@ const Menu = ({user,setComanda, urlBackend}) => {
           setContador={setContador}
           setComanda={setComanda}
           user={user}
-          urlBackend={URL}
           fecha={fecha}
         />
       </main>
